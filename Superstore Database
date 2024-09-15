@@ -25,6 +25,13 @@ VALUES
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
+Prompts
+Write a SQL query that orders the items by price.
+Write your own SQL query that will show a statistic about the item prices, like a sum, average, minimum, maximum, or count.
+Write your own SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies".
+NOTE: The values in the categories column are called text strings, and text strings are case sensitive. That means if you want to select "Kitchen Supplies", you will need to type it exactly as it appears in the data, i.e., with a capital "K" and a capital "S".
+Come up with your own question about the data and try to answer it using SQL. 
+
 SELECT (item_name) AS 'Items by Ascending Price', price
 FROM (superstore)
 ORDER BY (price);
