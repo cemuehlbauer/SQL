@@ -32,28 +32,32 @@ Write your own SQL query that will show a statistic about the price for items in
 NOTE: The values in the categories column are called text strings, and text strings are case sensitive. That means if you want to select "Kitchen Supplies", you will need to type it exactly as it appears in the data, i.e., with a capital "K" and a capital "S".
 Come up with your own question about the data and try to answer it using SQL. 
 
+--prompt 1
 SELECT (item_name) AS 'Items by Ascending Price', price
 FROM (superstore)
 ORDER BY (price);
 
-SELECT MAX (price) AS 'Most Expensive Item'
+--prompt 2
+SELECT MAX (price) AS 'Most Expensive Item', item_name
 FROM (superstore);
 
-SELECT (item_name)
+SELECT (item_name) AS 'Most Expensive Item'
 FROM (superstore)
 WHERE price='549.00';
 
 SELECT AVG (price) AS 'Average Price of All Items'
 FROM (superstore);
 
+--prompt 3
 SELECT MAX (price) AS 'Highest Cost of Single Item in Kitchen Suppies'
 FROM (superstore)
 WHERE category='Kitchen Supplies';
 
+--prompt 4
 SELECT (item_name) AS 'Items Listed in Descending Order of Average Rating', average_rating
 FROM (superstore)
 ORDER BY average_rating desc;
 
 SELECT SUM (stock_quantity) AS 'Total Number of Furnishings in Stock'
 FROM (superstore)
-WHERE category='furnishings';
+WHERE category='Furnishings';
