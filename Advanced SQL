@@ -31,3 +31,10 @@ SELECT department, SUM(salary) AS total_spent
 FROM employees
 GROUP BY department
 HAVING total_spent>300000;
+
+--Select all the departments that pay an average of at least $70,000 per year
+
+SELECT department, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department
+HAVING average_salary>70000;
