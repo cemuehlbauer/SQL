@@ -88,3 +88,9 @@ FROM fortune_companies;
 SELECT company_name
 FROM fortune_companies
 WHERE healthcare_benefits=1 AND (paid_time_off_days>=18 OR maternity_leave_weeks>=10);
+
+--This shows the healthcare company with the lowest revenue.
+SELECT company_name, min(revenue)
+FROM fortune_companies
+WHERE industry = 'Healthcare';
+
