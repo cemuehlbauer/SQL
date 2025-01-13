@@ -40,11 +40,11 @@ SELECT *
 FROM fortune_companies;
 
 --PROMPT ANSWERS:
-SELECT COUNT(*) AS Number_Of_Companies,
+SELECT COUNT(*) AS Number_of_Companies,
 CASE WHEN maternity_leave_weeks >=12 THEN "12+weeks"
 WHEN maternity_leave_weeks >=6 THEN "6+weeks"
 ELSE "less_than_6_weeks"
-END AS 'Number_Of_Maternity_Leave_Weeks'
+END AS 'Number_of_Maternity_Leave_Weeks'
 FROM fortune_companies
 GROUP BY (CASE WHEN maternity_leave_weeks >=12 THEN "12+weeks"
 WHEN maternity_leave_weeks >=6 THEN "6+weeks"
@@ -52,11 +52,11 @@ ELSE "less_than_6_weeks"
 END);
 
 
-SELECT COUNT(*) AS number_of_companies,
+SELECT COUNT(*) AS Number_of_Companies,
 CASE WHEN paid_time_off_days >='30' THEN 'at least 30 days'
 WHEN paid_time_off_days >= '20' THEN 'at least 20 days'
 WHEN paid_time_off_days >= '10' THEN 'at least 10 days'
-ELSE '<10 days off' END AS 'PTO days offered'
+ELSE '<10 days off' END AS 'PTO Days Offered'
 FROM fortune_companies
 GROUP BY (CASE WHEN paid_time_off_days >='30' THEN 'at least 30 days'
 WHEN paid_time_off_days >= '20' THEN 'at least 20 days'
