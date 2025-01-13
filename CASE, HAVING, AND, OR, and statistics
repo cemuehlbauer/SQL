@@ -55,11 +55,11 @@ ELSE "less_than_6_weeks"
 END);
 
 --This shows how many companies have at least 10 or at least 20 days of PTO.
-SELECT COUNT(*) AS number_of_companies,
+SELECT COUNT(*) AS Number_of_Companies,
 CASE WHEN paid_time_off_days >='30' THEN 'at least 30 days'
 WHEN paid_time_off_days >= '20' THEN 'at least 20 days'
 WHEN paid_time_off_days >= '10' THEN 'at least 10 days'
-ELSE '<10 days off' END AS 'PTO days offered'
+ELSE '<10 days off' END AS 'PTO Days Offered'
 FROM fortune_companies
 GROUP BY (CASE WHEN paid_time_off_days >='30' THEN 'at least 30 days'
 WHEN paid_time_off_days >= '20' THEN 'at least 20 days'
@@ -67,13 +67,13 @@ WHEN paid_time_off_days >= '10' THEN 'at least 10 days'
 ELSE '<10 days off' END);
 
 --This shows the average revenue of each industry where companies have at least 20 days of PTO and at least 12 weeks of maternity leave.
-SELECT AVG(revenue) AS average_revenue, industry
+SELECT AVG(revenue) AS Average_Revenue, industry
 FROM fortune_companies
 GROUP BY industry
 HAVING paid_time_off_days >= '20' AND maternity_leave_weeks >= '12';
 
 --This shows the average revenue (rounded to the second decimal place) for all companies.
-SELECT ROUND (AVG(revenue), 2) AS Average_Revenue
+SELECT ROUND (AVG(revenue), 2) AS Average_Revenue_From_All_Companies
 FROM fortune_companies;
 
 --This shows the average PTO days offered for all companies.
@@ -86,6 +86,10 @@ FROM fortune_companies;
 
 --This shows the companies who offer healthcare benefits and who offer at least the average number offered of: PTO days or maternity leave weeks.
 SELECT company_name
+FROM fortune_companies
+WHERE healthcare_benefits=1 AND (paid_time_off_days>=18 OR maternity_leave_weeks>=10);
+
+SELECT COUNT(*)
 FROM fortune_companies
 WHERE healthcare_benefits=1 AND (paid_time_off_days>=18 OR maternity_leave_weeks>=10);
 
