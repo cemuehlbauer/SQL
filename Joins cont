@@ -64,81 +64,37 @@ VALUES
 --5. What is the oldest movie in the database and what year was it made?
 
 --Note- Answers written in PostgreSQL instead of Standard SQL as previously completed. 
-2
-​
-3
+--Answers written in PostgreSQL instead of Standard SQL as previously completed. 
+
 SELECT * FROM "netflix_titles_info" LIMIT 5;
-4
-​
-5
-SELECT titles.title, titles.release_year, titles.rating, people.cast
-6
-FROM "netflix_titles_info" AS titles
-7
-LEFT JOIN "netflix_people" AS people
-8
-ON titles.show_id=people.show_id;
-9
-​
-10
+
 SELECT COUNT (*)
-11
 FROM "netflix_titles_info" as titles
-12
 WHERE titles.type= 'Movie';
-13
-​
-14
+
 SELECT MAX (DATE(date_added))
-15
 FROM "netflix_titles_info";
-16
-​
-17
+
 SELECT title
-18
 FROM "netflix_titles_info"
-19
 ORDER BY title asc;
-20
-​
-21
+
 SELECT director
-22
 FROM "netflix_people"
-23
 INNER JOIN "netflix_titles_info"
-24
 ON netflix_people.show_id=netflix_titles_info.show_id
-25
 WHERE netflix_titles_info.title= 'The Starling';
-26
-​
-27
+
 SELECT title, release_year
-28
 FROM "netflix_titles_info"
-29
 WHERE type='Movie'
-30
 ORDER BY release_year asc
-31
 limit 1;
-32
-​
-33
+
 SELECT title, release_year
-34
 FROM "netflix_titles_info"
-35
 WHERE type = 'Movie'
-36
 AND release_year <=
-37
 (SELECT MIN(release_year)
-38
 FROM "netflix_titles_info"
-39
 WHERE type = 'Movie');
-40
-​
